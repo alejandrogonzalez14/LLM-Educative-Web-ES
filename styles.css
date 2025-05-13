@@ -1,14 +1,14 @@
 /* ====== ESTILS GLOBALS ====== */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
   background-color: #f9f9f9;
   color: #222;
+  font-family: "Segoe UI", sans-serif;
   line-height: 1.6;
   padding: 1rem;
 }
@@ -16,11 +16,11 @@ body {
 /* ====== CAPÇALERA ====== */
 header {
   background-color: #004080;
+  border-radius: 12px;
   color: white;
+  margin-bottom: 2rem;
   padding: 2rem 1rem;
   text-align: center;
-  border-radius: 12px;
-  margin-bottom: 2rem;
 }
 
 header h1 {
@@ -33,12 +33,13 @@ section {
 }
 
 section h2 {
-  font-size: 1.5rem;
   color: #004080;
+  font-size: 1.5rem;
   margin-bottom: 0.75rem;
 }
 
-p, ul {
+p,
+ul {
   margin-bottom: 1rem;
 }
 
@@ -53,14 +54,15 @@ li {
 
 /* ====== TAULA COMPARATIVA ====== */
 table {
-  width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
   border-radius: 6px;
+  margin-top: 1rem;
   overflow: hidden;
+  width: 100%;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ccc;
   padding: 0.75rem;
   text-align: left;
@@ -94,8 +96,8 @@ a:hover {
 #trivia {
   background-color: #eef5ff;
   border-left: 4px solid #004080;
-  padding: 1rem;
   border-radius: 8px;
+  padding: 1rem;
 }
 
 /* ====== RESPONSIVE DESIGN ====== */
@@ -108,7 +110,9 @@ a:hover {
     font-size: 1.25rem;
   }
 
-  table, th, td {
+  table,
+  th,
+  td {
     font-size: 0.95rem;
   }
 }
