@@ -1,0 +1,15 @@
+{
+    "extends": "stylelint-config-standard",
+    "plugins": [
+        "stylelint-order"
+    ],
+    "rules": {
+        "color-no-invalid-hex": true,
+        "max-empty-lines": 1,
+        "no-missing-end-of-source-newline": true,
+        "order/properties-alphabetical-order": true,
+        "block-no-empty": true,
+        "unit-no-unknown": true,
+        "declaration-block-no-shorthand-property-overrides": true
+    }
+}
