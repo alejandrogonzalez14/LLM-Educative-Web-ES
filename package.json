@@ -1,0 +1,21 @@
+{
+	"name": "website-linting",
+	"version": "1.0.0",
+	"description": "A project with ESLint, Stylelint, and Prettier setup",
+	"scripts": {
+	"lint": "sh -c 'FILES=$(find . -type f \\( -name \"*.js\" -o -name \"*.jsx\" -o -name \"*.ts\" -o -name \"*.tsx\" \\) ! -path \"*/node_modules/*\") && [ -n \"$FILES\" ] && npx eslint $FILES || echo \"No JS/TS files to lint.\"'",
+	"lint:styles": "sh -c 'FILES=$(find . -type f \\( -name \"*.css\" -o -name \"*.scss\" \\) ! -path \"*/node_modules/*\") && [ -n \"$FILES\" ] && npx stylelint $FILES || echo \"No CSS/SCSS files to lint.\"'",
+	"lint:fix": "sh -c 'JS_TS_FILES=$(find . -type f \\( -name \"*.js\" -o -name \"*.jsx\" -o -name \"*.ts\" -o -name \"*.tsx\" \\) ! -path \"*/node_modules/*\"); CSS_FILES=$(find . -type f \\( -name \"*.css\" -o -name \"*.scss\" \\) ! -path \"*/node_modules/*\"); [ -n \"$JS_TS_FILES\" ] && npx eslint --fix $JS_TS_FILES || echo \"No JS/TS files to fix.\"; [ -n \"$CSS_FILES\" ] && npx stylelint --fix $CSS_FILES || echo \"No CSS/SCSS files to fix.\"'",
+	"prettier": "sh -c 'FILES=$(find . -type f \\( -name \"*.js\" -o -name \"*.jsx\" -o -name \"*.ts\" -o -name \"*.tsx\" -o -name \"*.css\" -o -name \"*.scss\" -o -name \"*.html\" -o -name \"*.json\" \\) ! -path \"*/node_modules/*\") && [ -n \"$FILES\" ] && npx prettier --write $FILES || echo \"No files to format with Prettier.\"'"
+	},
+	"devDependencies": {
+		"eslint": "^8.33.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.28.0",
+		"stylelint": "^13.13.1",
+		"stylelint-config-standard": "^24.0.0",
+		"stylelint-order": "^4.0.0",
+		"prettier": "^2.8.0"
+	}
+}
