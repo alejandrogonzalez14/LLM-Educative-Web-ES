@@ -12,11 +12,16 @@ document.getElementById('alertButton').addEventListener('click', () => {
 
 // Canvi de tema/color
 let temaActual = 0;
-const temes = [
-  { backgroundColor: '#f0f8ff', color: '#000080' }, // Tema clar (blau clar amb text blau marí)
-  { backgroundColor: '#ffe4e1', color: '#8b0000' }, // Tema pastel (rosa pàl·lid amb text vermell fosc)
-  { backgroundColor: '#ffefd5', color: '#8b4513' }, // Tema pastel (beix pàl·lid amb text marró)
-];
+const temes = ['tema-clar', 'tema-rosa', 'tema-beix'];
+
+document.getElementById('themeButton').addEventListener('click', () => {
+  // Elimina la classe anterior
+  document.body.classList.remove(...temes);
+  // Calcula el nou tema
+  temaActual = (temaActual + 1) % temes.length;
+  // Afegeix la nova classe
+  document.body.classList.add(temes[temaActual]);
+});
 
 document.getElementById('themeButton').addEventListener('click', () => {
   temaActual = (temaActual + 1) % temes.length;
