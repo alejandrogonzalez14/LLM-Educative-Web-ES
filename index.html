@@ -6,7 +6,7 @@
     <title>Què és un LLM?</title>
     <link rel="stylesheet" href="styles.css"> <!-- Opcional: per afegir estils -->
 </head>
-<body>
+<body class="tema-clar">
     <!-- Capçalera amb títol -->
     <header>
         <h1>Què és un LLM?</h1>
@@ -86,8 +86,11 @@
     <!-- Trivia o curiositats interactives (opcional) -->
     <section id="trivia">
         <h2>Trivia o curiositats</h2>
-        <p>Sabies que el primer model de llenguatge gran es va entrenar amb milers de milions de paraules?</p>
-        <!-- Aquí pots afegir funcionalitats interactives amb JavaScript -->
+        <div id="trivia-question"></div>
+        <div id="trivia-options"></div>
+        <div id="trivia-feedback"></div>
+        <div id="trivia-progress"></div>
+        <button id="trivia-next" style="display:none; margin-top:1rem;">Següent pregunta</button>
     </section>
     <button id="themeButton">Canvia tema</button>
     <script src="app.js"></script>

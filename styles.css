@@ -15,7 +15,6 @@ body {
 
 /* ====== CAPÇALERA ====== */
 header {
-  background: rgba(42, 0, 80, 0.85);
   padding: 2rem 0 1rem 0;
   text-align: center;
   box-shadow: 0 2px 8px rgba(60, 0, 120, 0.15);
@@ -31,12 +30,19 @@ header h1 {
 
 /* ====== SECCIONS GENERALS ====== */
 section {
-  background: rgba(60, 0, 120, 0.15);
   margin: 2rem auto;
   padding: 1.5rem 2rem;
   border-radius: 1.2rem;
   max-width: 700px;
   box-shadow: 0 4px 24px rgba(60, 0, 120, 0.08);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s, transform 0.7s;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h2 {
@@ -49,32 +55,7 @@ ul, p {
   color: #e0e0ff;
 }
 
-/* Header temático */
-body.tema-clar header {
-  background: rgba(42, 0, 80, 0.85);
-  color: #fff;
-}
-body.tema-rosa header {
-  background: linear-gradient(90deg, #ffb6c1 0%, #a259ff 100%);
-  color: #8b0000;
-}
-body.tema-beix header {
-  background: linear-gradient(90deg, #ffe4b5 0%, #8b4513 100%);
-  color: #8b4513;
-}
-
-body.tema-clar header h1 {
-  color: #fff;
-  text-shadow: 0 2px 8px #6c3cff88;
-}
-body.tema-rosa header h1 {
-  color: #8b0000;
-  text-shadow: 0 2px 8px #a259ff44;
-}
-body.tema-beix header h1 {
-  color: #8b4513;
-  text-shadow: 0 2px 8px #deb88744;
-}ul {
+ul {
   padding-left: 1.5rem;
 }
 
@@ -122,30 +103,11 @@ button {
   padding: 0.7rem 1.8rem;
   font-size: 1rem;
   cursor: pointer;
-  box-shadow: 0 2px 8px #6c3cff44;
   transition: background 0.2s, transform 0.2s;
   display: block;
   margin: 1rem auto 0 auto;
 }
 
-button:hover {
-  background: linear-gradient(90deg, #a259ff 0%, #3a3dff 100%);
-  transform: translateY(-2px) scale(1.04);
-}
-
-/* ====== ENLLAÇOS ====== */
-a {
-  color: #a259ff;
-  text-decoration: underline;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: #fff;
-  background: #a259ff;
-  border-radius: 0.3rem;
-  padding: 0.1rem 0.3rem;
-}
 
 /* ====== TRIVIA O CURIOSITATS ====== */
 #trivia {
@@ -154,6 +116,94 @@ a:hover {
   border-radius: 8px;
   padding: 1rem;
   color: #e0e0ff;
+}
+
+#trivia-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+#trivia-next {
+  display: block;
+  margin: 1rem auto 0 auto;
+}
+
+.trivia-correcte {
+  color: #4caf50;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #4caf5044;
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.trivia-incorrecte {
+  color: #e53935;
+  font-size: 1.7rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #e5393544;
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.trivia-final {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a259ff;
+  display: block;
+  margin-bottom: 0.7rem;
+  text-shadow: 0 2px 8px #a259ff44;
+  text-align: center;
+}
+
+.trivia-puntuacio {
+  font-size: 1.3rem;
+  color: #fff;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.7rem;
+  text-shadow: 0 2px 8px #6c3cff44;
+  text-align: center;
+}
+
+#trivia-progress {
+  text-align: center;
+  margin: 2.2rem 0 1.2rem 0;
+}
+
+progress {
+  width: 80%;
+  height: 20px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 12px #6c3cff22;
+  overflow: hidden;
+  appearance: none;
+  border: 1.5px solid #fff; /* Cambiado a blanco */
+}
+
+/* Webkit (Chrome, Safari) */
+progress::-webkit-progress-value {
+  border-radius: 12px;
+  transition: width 0.4s;
+}
+
+/* Firefox */
+progress::-moz-progress-bar {
+  border-radius: 12px;
+  transition: width 0.4s;
+}
+
+/* IE/Edge */
+progress::-ms-fill {
+  border-radius: 12px;
+  transition: width 0.4s;
 }
 
 /* ====== TEMES ====== */
@@ -172,7 +222,7 @@ body.tema-beix {
 
 /* Header temático */
 body.tema-clar header {
-  background: rgba(42, 0, 80, 0.85);
+  background: linear-gradient(90deg, #3a3dff 0%, #a259ff 100%);
   color: #fff;
 }
 body.tema-rosa header {
@@ -312,14 +362,71 @@ body.tema-beix #trivia {
 }
 
 /* Enlaces */
-body.tema-clar a {
-  color: #a259ff;
-}
-body.tema-rosa a {
-  color: #a259ff;
-}
+body.tema-clar a,
+body.tema-rosa a,
 body.tema-beix a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+/* Hover personalizado por tema */
+body.tema-clar a:hover {
+  color: #a259ff;
+  background: #fff2;
+  border-radius: 0.5rem;
+  text-decoration: underline;
+  box-shadow: 0 2px 8px #a259ff33;
+  padding: 0.1rem 0.4rem;
+}
+
+body.tema-rosa a:hover {
+  color: #a259ff;
+  background: #ffb6c155;
+  border-radius: 0.5rem;
+  text-decoration: underline;
+  box-shadow: 0 2px 8px #ffb6c144;
+  padding: 0.1rem 0.4rem;
+}
+
+body.tema-beix a:hover {
   color: #8b4513;
+  background: #ffe4b555;
+  border-radius: 0.5rem;
+  text-decoration: underline;
+  box-shadow: 0 2px 8px #deb88744;
+  padding: 0.1rem 0.4rem;
+}
+
+/* Progress bar temático */
+body.tema-clar progress::-webkit-progress-value {
+  background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
+}
+body.tema-rosa progress::-webkit-progress-value {
+  background: linear-gradient(90deg, #ffb6c1 0%, #a259ff 100%);
+}
+body.tema-beix progress::-webkit-progress-value {
+  background: linear-gradient(90deg, #ffe4b5 0%, #8b4513 100%);
+}
+
+body.tema-clar progress::-moz-progress-bar {
+  background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
+}
+body.tema-rosa progress::-moz-progress-bar {
+  background: linear-gradient(90deg, #ffb6c1 0%, #a259ff 100%);
+}
+body.tema-beix progress::-moz-progress-bar {
+  background: linear-gradient(90deg, #ffe4b5 0%, #8b4513 100%);
+}
+
+body.tema-clar progress::-ms-fill {
+  background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
+}
+body.tema-rosa progress::-ms-fill {
+  background: linear-gradient(90deg, #ffb6c1 0%, #a259ff 100%);
+}
+body.tema-beix progress::-ms-fill {
+  background: linear-gradient(90deg, #ffe4b5 0%, #8b4513 100%);
 }
 
 /* ====== RESPONSIVE DESIGN ====== */
@@ -337,4 +444,9 @@ body.tema-beix a {
   td {
     font-size: 0.95rem;
   }
+}
+
+/* ====== THEME BUTTON ====== */
+#themeButton {
+  margin-bottom: 2rem;
 }
